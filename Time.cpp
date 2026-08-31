@@ -4,10 +4,10 @@ class Time
 {
     public: 
     int hours, minutes;
-    void gettime(int x, int y)
+    void gettime(int a, int b)
     {
-        hours = x;
-        minutes = y;
+        hours = a;
+        minutes = b;
     }
     Time sum(Time y)
     {
