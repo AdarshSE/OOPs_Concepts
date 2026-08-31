@@ -4,24 +4,24 @@ class Book{
     string title;
     string author;
     float price;
-    string publisher;
-    int stockposition;
+    string pub;
+    int stockpos;
     public:
     void getdata(string t, string a, float p, string pub, int s)
     {
         title = t;
         author = a;
         price = p;
-        publisher = pub;
-        stockposition = s;
+        pub = pub;
+        stockpos = s;
     }
     void display()
     {
         cout<<"Title: "<<title<<endl;
         cout<<"Author: "<<author<<endl;
         cout<<"Price: "<<price<<endl;
-        cout<<"Publisher: "<<publisher<<endl;
-        cout<<"Stock Position: "<<stockposition<<endl;
+        cout<<"Publisher: "<<pub<<endl;
+        cout<<"Stock Position: "<<stockpos<<endl;
     }
     void search(string t, string a)
     {
@@ -40,7 +40,7 @@ class Book{
     }
     void purchase(int copies)
     {
-        if (copies <= stockposition)
+        if (copies <= stockpos)
             cout << "Total cost = " << price * copies << endl;
         else
             cout << "Required copies not in stock." << endl;
