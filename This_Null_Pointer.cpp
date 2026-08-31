@@ -3,17 +3,17 @@
 using namespace std;
 class Student {
     string name;
-    int roll;
+    int rollno;
     float marks;
 public:
     Student(string n, int r, float m) {  
         this->name = n;                           //this pointer refers to current object of the class
-        this->roll = r;
+        this->rollno = r;
         this->marks = m;
     }
     void display() {
         cout << "Name: " << this->name << endl;
-        cout << "Roll: " << this->roll << endl;
+        cout << "Roll: " << this->rollno << endl;
         cout << "Marks: " << this->marks << endl;
     }
 };
