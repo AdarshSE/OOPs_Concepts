@@ -4,10 +4,10 @@ using namespace std;
  {
     int real, imag;
     public:
-    void input(int x, int y)
+    void input(int a, int b)
     {
-       real =x;
-       imag = y;
+       real =a;
+       imag = b;
     }
     void display()
     {
