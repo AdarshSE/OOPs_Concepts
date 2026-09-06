@@ -20,7 +20,7 @@ void Test::greetHalo() {
 }
 int main() {
     Test t;
-    int num;
+    auto num = 0;
     cin>>num;
     if(::num > num)
        t.greetHello();
