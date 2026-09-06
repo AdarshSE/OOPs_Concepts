@@ -4,7 +4,7 @@ class Book{
     string title;
     string author;
     float price;
-    string pub;
+    string publisher;
     int stockpos;
     public:
     void getdata(string t, string a, float p, string pub, int s)
@@ -12,7 +12,7 @@ class Book{
         title = t;
         author = a;
         price = p;
-        pub = pub;
+        publisher = pub;
         stockpos = s;
     }
     void display()
@@ -20,7 +20,7 @@ class Book{
         cout<<"Title: "<<title<<endl;
         cout<<"Author: "<<author<<endl;
         cout<<"Price: "<<price<<endl;
-        cout<<"Publisher: "<<pub<<endl;
+        cout<<"Publisher: "<<publisher<<endl;
         cout<<"Stock Position: "<<stockpos<<endl;
     }
     void search(string t, string a)
