@@ -14,6 +14,9 @@ int main() {
 	}
 	return 0;
 }
+
+                                     // OR
+
 // #include <iostream>
 // using namespace std;
 // class Team{
