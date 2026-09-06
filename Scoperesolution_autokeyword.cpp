@@ -1,3 +1,4 @@
+// Wap to demonstrate the use of scope resolution operator and auto keyword.
 #include <iostream>
 using namespace std;
 
