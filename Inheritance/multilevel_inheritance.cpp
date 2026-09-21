@@ -11,7 +11,7 @@ public:
     void setRollNo(int roll) {
         rollNo = roll;
     }
-    int getRollNumber() {
+    int getRollNo() {
         return rollNo;
     }
 };
@@ -38,7 +38,7 @@ public:
         totalMarks = marks1 + marks2;
     }
     void displayResult() {
-        cout << "Roll Number: " << getRollNumber() << endl;
+        cout << "Roll Number: " << getRollNo() << endl;
         displayMarks();
         cout << "Total Marks: " << totalMarks << endl;
     }
