@@ -45,16 +45,69 @@ public:
     }
 };
 
+class Typist : public Staff {
+private:
+    int speed;
+public:
+    void setTypistInfo(int id, string n, int spd) {
+        setStaffInfo(id, n);
+        speed = spd;
+    }
+    void displayTypistInfo() {
+        displayStaffInfo();
+        cout << "Speed: " << speed << " WPM" << endl;
+    }
+};
+
+class Regular : public Staff {
+private:
+    int salary;
+public:
+    void setRegularInfo(int id, string n, int sal) {
+        setStaffInfo(id, n);
+        salary = sal;
+    }
+    void displayRegularInfo() {
+        displayStaffInfo();
+        cout << "Salary: " << salary << endl;
+    }
+};
+
+class Casual : public Staff {
+private:
+    int dailyWages;
+public:
+    void setCasualInfo(int id, string n, int wages) {
+        setStaffInfo(id, n);
+        dailyWages = wages;
+    }
+    void displayCasualInfo() {
+        displayStaffInfo();
+        cout << "Daily Wages: " << dailyWages << endl;
+    }
+};
+
 int main() {
     Teacher t;
     t.setTeacherInfo(1, "Alice", "Mathematics");
     t.displayTeacherInfo();
 
-    cout << endl;
-
     Officer o;
     o.setOfficerInfo(2, "Bob", "Administration");
     o.displayOfficerInfo();
 
+    Typist ty;
+    ty.setTypistInfo(3, "Charlie", 75);
+    ty.displayTypistInfo();
+
+    Regular r;
+    r.setRegularInfo(4, "David", 50000);
+    r.displayRegularInfo();
+
+    Casual c;
+    c.setCasualInfo(5, "Eve", 200);
+    c.displayCasualInfo();
+
     return 0;
 }
+
