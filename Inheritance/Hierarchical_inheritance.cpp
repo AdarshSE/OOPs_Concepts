@@ -1,113 +1,132 @@
-// An educational institution wants to maintain the database of his employees. The database is divided into a number of class whose hierarchical relationships are shown in the figure. The figure also shows the minimum information required for each class. Specify all the classes and define functions to create the database and retrieve individual information as when required.
 #include <iostream>
 using namespace std;
 
-class Staff {
+class Staff
+{
 protected:
-    int staffId;
+    int code;
     string name;
+
 public:
-    void setStaffInfo(int id, string n) {
-        staffId = id;
+    Staff(int c, string n)
+    {
+        code = c;
         name = n;
     }
-    void displayStaffInfo() {
-        cout << "Staff ID: " << staffId << endl;
+
+    void showStaff()
+    {
+        cout << "Code: " << code << endl;
         cout << "Name: " << name << endl;
     }
 };
 
-class Teacher : public Staff {
-private:
+class Teacher : public Staff
+{
     string subject;
+    string publication;
+
 public:
-    void setTeacherInfo(int id, string n, string sub) {
-        setStaffInfo(id, n);
-        subject = sub;
+    Teacher(int c, string n, string s, string p)
+        : Staff(c, n)
+    {
+        subject = s;
+        publication = p;
     }
-    void displayTeacherInfo() {
-        displayStaffInfo();
+
+    void show()
+    {
+        showStaff();
         cout << "Subject: " << subject << endl;
+        cout << "Publication: " << publication << endl;
     }
 };
 
-class Officer : public Staff {
-private:
-    string department;
-public:
-    void setOfficerInfo(int id, string n, string dept) {
-        setStaffInfo(id, n);
-        department = dept;
-    }
-    void displayOfficerInfo() {
-        displayStaffInfo();
-        cout << "Department: " << department << endl;
-    }
-};
-
-class Typist : public Staff {
-private:
+class Typist : public Staff
+{
+protected:
     int speed;
+
 public:
-    void setTypistInfo(int id, string n, int spd) {
-        setStaffInfo(id, n);
-        speed = spd;
+    Typist(int c, string n, int sp)
+        : Staff(c, n)
+    {
+        speed = sp;
     }
-    void displayTypistInfo() {
-        displayStaffInfo();
-        cout << "Speed: " << speed << " WPM" << endl;
+
+    void showTypist()
+    {
+        showStaff();
+        cout << "Speed: " << speed << " wpm" << endl;
     }
 };
 
-class Regular : public Staff {
-private:
-    int salary;
+class Regular : public Typist
+{
 public:
-    void setRegularInfo(int id, string n, int sal) {
-        setStaffInfo(id, n);
-        salary = sal;
-    }
-    void displayRegularInfo() {
-        displayStaffInfo();
-        cout << "Salary: " << salary << endl;
+    Regular(int c, string n, int sp)
+        : Typist(c, n, sp)
+    {
     }
 };
 
-class Casual : public Staff {
-private:
+class Casual : public Typist
+{
     int dailyWages;
+
 public:
-    void setCasualInfo(int id, string n, int wages) {
-        setStaffInfo(id, n);
-        dailyWages = wages;
+    Casual(int c, string n, int sp, int w)
+        : Typist(c, n, sp)
+    {
+        dailyWages = w;
     }
-    void displayCasualInfo() {
-        displayStaffInfo();
+
+    void show()
+    {
+        showTypist();
         cout << "Daily Wages: " << dailyWages << endl;
     }
 };
 
-int main() {
-    Teacher t;
-    t.setTeacherInfo(1, "Alice", "Mathematics");
-    t.displayTeacherInfo();
+class Officer : public Staff
+{
+    char grade;
 
-    Officer o;
-    o.setOfficerInfo(2, "Bob", "Administration");
-    o.displayOfficerInfo();
+public:
+    Officer(int c, string n, char g)
+        : Staff(c, n)
+    {
+        grade = g;
+    }
 
-    Typist ty;
-    ty.setTypistInfo(3, "Charlie", 75);
-    ty.displayTypistInfo();
+    void show()
+    {
+        showStaff();
+        cout << "Grade: " << grade << endl;
+    }
+};
 
-    Regular r;
-    r.setRegularInfo(4, "David", 50000);
-    r.displayRegularInfo();
+int main()
+{
+    Teacher t(101, "Adarsh", "CSE", "IEEE");
 
-    Casual c;
-    c.setCasualInfo(5, "Eve", 200);
-    c.displayCasualInfo();
+    Regular r(102, "Rahul", 50);
+
+    Casual c(103, "Aman", 45, 800);
+
+    Officer o(104, "Ravi", 'A');
+
+    cout << "----- TEACHER -----" << endl;
+    t.show();
+
+    cout << "\n----- REGULAR TYPIST -----" << endl;
+    r.showTypist();
+
+    cout << "\n----- CASUAL TYPIST -----" << endl;
+    c.show();
+
+    cout << "\n----- OFFICER -----" << endl;
+    o.show();
 
     return 0;
 }
-
